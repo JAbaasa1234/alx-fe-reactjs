@@ -26,7 +26,7 @@ function App() {
         </a>
       </div>
       <div>
-        <UserProfile name="Jerry" age="20" bio="Loves playing piano and reading books."/>
+        <UserProfile name="Alice" age="25" bio="Loves hiking and photography"/>
       </div>
       <h1>Vite + React</h1>
       <div className="card">
