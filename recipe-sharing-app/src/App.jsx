@@ -6,8 +6,7 @@ import RecipeDetails from './components/RecipeDetails';
 
 function App() {
   return (
-    <Router>
-        <div className='App'>
+      <div className='App'>
         <h1>Recipe Sharing Application</h1>
         <Routes>
           <Route
@@ -22,7 +21,6 @@ function App() {
           <Route path="/recipe/:recipeId" element={<RecipeDetails />} />
         </Routes>
       </div>
-    </Router>
   );
 }
 
