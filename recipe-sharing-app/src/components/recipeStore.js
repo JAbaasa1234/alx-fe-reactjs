@@ -5,6 +5,14 @@ const useRecipeStore = create(set => ({
    filteredRecipes: [],
    searchTerm: '',
 
+   setRecipes: (recipes) => 
+      set(() => ({
+         recipes,
+         filteredRecipes: recipes.filter((recipe) =>
+            recipe.title.toLowerCase().includes('')
+         ),
+      })),
+
    setSearchTerm: (term) =>
       set((state) => {
          const filtered = state.recipes.filter((recipe) => 
