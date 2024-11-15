@@ -3,6 +3,8 @@ import { create } from 'zustand';
 const useRecipeStore = create(set => ({
    recipes: [],
    filteredRecipes: [],
+   favorites: [],
+   recommendations: [],
    searchTerm: '',
 
    setRecipes: (recipes) => 
@@ -51,6 +53,29 @@ const useRecipeStore = create(set => ({
                recipe.title.toLowerCase().includes(state.searchTerm.toLowerCase())
             ),
          };
+      }),
+
+   addFavorite: (recipeId) =>
+      set((state) => ({
+         favorites: state.favorites.includes(recipeId)
+            ? state.favorites
+            : [...state.favorites, recipeId],
+      })),
+   
+   removeFavorite: (recipeId) =>
+      set((state) => ({
+         favorites: state.favorites.filter((id) => id !== recipeId),
+      })),
+
+   // Generate recommendations based on favorites   
+   generateRecommendations: () =>
+      set((state) => {
+         const recommended = state.recipes.filter(
+           (recipe) =>
+             state.favorites.includes(recipe.id) &&
+             Math.random() > 0.5 // Simple mock logic for recommendations
+         );
+         return { recommendations: recommended };
       }),
 }));
 

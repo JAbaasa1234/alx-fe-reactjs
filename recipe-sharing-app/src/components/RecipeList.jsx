@@ -6,6 +6,10 @@ import DeleteRecipeButton from './DeleteRecipeButton';
 
 const RecipeList = () => {
     const filteredRecipes = useRecipeStore((state) => state.filteredRecipes);
+    const favorites = useRecipeStore((state) => state.favorites);
+    const addFavorite = useRecipeStore((state) => state.addFavorite);
+    const removeFavorite = useRecipeStore((state) => state.removeFavorite);
+
     const [editingRecipeId, setEditingRecipeId] = useState(null);
 
     const handleEditClick = (recipeId) => {
@@ -16,13 +20,21 @@ const RecipeList = () => {
         setEditingRecipeId(null);
     };
 
+    const handleFavoriteToggle = (repiceId) => {
+        if (favorites.includes(repiceId)) {
+            removeFavorite(repiceId);
+        } else {
+            addFavorite(repiceId);
+        }
+    };
+
 
     return (
         <div>
             <h2>Recipe List</h2>
             {filteredRecipes.length >0 ? (
                 filteredRecipes.map((recipe) => (
-                    <div key={recipe.id} style={{ border: '1px solid #ccc', padding: '10px', marginBottom: '10px' }}>
+                    <div key={recipe.id} style={{ border: '1px solid #ccc', padding: '10px', marginBottom: '10px', backgroundColor: favorites.includes(recipe.id) ? '#f9f9ff' : 'white' }}>
                         {editingRecipeId === recipe.id ? (
                             <div>
                                 <EditRecipeForm
@@ -39,6 +51,17 @@ const RecipeList = () => {
                                 <p>{recipe.description}</p>
                                 <button onClick={() => handleEditClick(recipe.id)}>Edit</button>
                                 <DeleteRecipeButton recipeId={recipe.id} />
+                                <button
+                                    onClick={() => handleFavoriteToggle(recipe.id)}
+                                    style={{
+                                        marginLeft: '10px',
+                                        backgroundColor: favorites.includes(recipe.id) ? '#ffccb' : '#f0f0f0',
+                                        border: '1px solid #ccc',
+                                        borderRadius: '5px' 
+                                    }}
+                                >
+                                    {favorites.includes(recipe.id) ? 'Unfavorite' : 'Favorite'}
+                                </button>
                             </>
                         )}
                     </div>

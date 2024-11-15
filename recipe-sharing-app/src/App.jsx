@@ -5,6 +5,8 @@ import RecipeList from './components/RecipeList';
 import AddRecipeForm from './components/AddRecipeForm';
 import RecipeDetails from './components/RecipeDetails';
 import SearchBar from './components/SearchBar';
+import FavoritesList from './components/FavoritesList';
+import RecommendationsList from './components/RecommendationsList';
 
 function App() {
   return (
@@ -17,7 +19,18 @@ function App() {
               <>
                 <SearchBar />
                 <AddRecipeForm />
-                <RecipeList />
+                <div style={{ display: 'flex', gap: '20px', marginTop: '20px' }}>
+                  {/* Recipe list */}
+                  <div style={{ flex: 2 }}>
+                    <RecipeList />
+                  </div>
+
+                  {/* Favorites and Recommendations */}
+                  <div style={{ flex: 1 }}>
+                    <FavoritesList />
+                    <RecommendationsList />
+                  </div>
+                </div>
               </>
             }
           />
