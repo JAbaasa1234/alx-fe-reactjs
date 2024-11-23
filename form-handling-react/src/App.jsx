@@ -1,6 +1,6 @@
 import React from "react";
-import RegistrationForm from "./components/RegistrationForm";
-import Formikform from "./components/FormikForm";
+import Formikform from "./components/FormikForm.jsx";
+import RegistrationForm from "./components/RegistrationForm.jsx";
 
 const App = () => {
   return (
