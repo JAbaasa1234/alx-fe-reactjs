@@ -7,7 +7,7 @@ const RegistrationForm = () => {
         password: '',
     });
 
-    const [error, setError] = useState('');
+    const [errors, setErrors] = useState('');
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -21,12 +21,24 @@ const RegistrationForm = () => {
         e.preventDefault();
         const { username, email, password } = formData;
 
-        if (!username || !email || !password) {
-            setError('All fields are required.');
+        const newErrors = {};
+
+        if (!username) {
+            newErrors.username = "Username is required."
+        }
+        if (!email) {
+            newErrors.email = "Email is required."
+        }
+        if (!password) {
+            newErrors.password = "Password is required."
+        }
+
+        if (Object.keys(newErrors).length > 0) {
+            setErrors(newErrors);
             return;
         }
 
-        setError('');
+        setErrors({});
         console.log('Form submitted:', formData);
     };
 
@@ -42,6 +54,7 @@ const RegistrationForm = () => {
                     value={username}
                     onChange={handleChange}
                 />
+                {errors.username && <p style={{ color: "red" }}>{errors.username}</p>}
             </div>
             <div>
                 <label>Email:</label>
@@ -51,6 +64,7 @@ const RegistrationForm = () => {
                     value={email}
                     onChange={handleChange}
                 />
+                {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
             </div>
             <div>
                 <label>Password:</label>
@@ -60,8 +74,8 @@ const RegistrationForm = () => {
                     value={password}
                     onChange={handleChange}
                 />
+                {errors.password && <p style={{ color: "red" }}>{errors.password}</p>}
             </div>
-            {error && <p style={{ color: 'red' }}>{error}</p>}
             <button type="submit">Register</button>
         </form>
     );
