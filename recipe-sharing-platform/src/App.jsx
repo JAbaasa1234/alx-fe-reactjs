@@ -1,11 +1,16 @@
 import React from "react";
 import HomePage from "./components/HomePage";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import RecipeDetail from "./components/RecipeDetail";
 
-const App = () => {
+function App () {
   return (
-    <div className="App">
-      <HomePage />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/recipe/:id" element={<RecipeDetail />} />
+      </Routes>
+    </Router>
   );
 };
 

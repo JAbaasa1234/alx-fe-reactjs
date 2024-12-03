@@ -3,18 +3,62 @@
         "id": 1,
         "title": "Spaghetti Carbonara",
         "summary": "A classic Italian past a dish with eggs, cheese, bacon, and black pepper.",
-        "image": "https://via.placeholder.com/150"
+        "image": "https://via.placeholder.com/150",
+        "ingredients": [
+            "200g spaghetti",
+            "100g bacon",
+            "2 large eggs",
+            "50g grated parmesan",
+            "Salt and pepper to taste"
+        ],
+        "steps": [
+            "Boil the spaghetti until al dente.",
+            "Cook the bacon in a skillet until crispy.",
+            "Whisk eggs and parmesan in a bowl.",
+            "Combine spaghetti, bacon, and egg mixture in the skillet.",
+            "Serve with a sprinkle of black pepper."
+        ]
     },
     {
         "id": 2,
         "title": "Chicken Tikka Masala",
         "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
-        "image": "https://via.placeholder.com/150"
+        "image": "https://via.placeholder.com/150",
+        "ingredients": [
+            "500g chicken breast",
+            "1 cup yogurt",
+            "2 tbsp tikka masala spice blend",
+            "1 cup tomato puree",
+            "1/2 cup cream"
+        ],
+        "steps": [
+            "Marinate the chicken with yogurt and tikka masala spice blend.",
+            "Grill the chicken until fully cooked.",
+            "Prepare the tomato-based gravy in a pan.",
+            "Add the grilled chicken to the gravy and simmer.",
+            "Serve with rice or naan."
+        ]
     },
     {
         "id": 3,
         "title":"Caesar Salad",
         "summary": "A refreshing salad with romaine lettuce, parmesan cheese, croutons, and Caesar dressing.",
-        "image": "https://via.placeholder.com/150"
+        "image": "https://via.placeholder.com/150",
+        "ingredients": [
+            "1 large head of romaine lettuce, chopped",
+            "1/4 cup grated parmesan cheese",
+            "1 cup croutons",
+            "1/2 cup Caesar dressing",
+            "Salt and black pepper to taste",
+            "Optional: Grilled chicken or shrimp (for a protein boost)"
+        ],
+        "steps": [
+            "Wash and dry the romaine lettuce, then chop it into bite-sized pieces.",
+            "In a large salad bowl, toss the lettuce with Caesar dressing until evenly coated.",
+            "Add grated parmesan cheese and croutons to the bowl.",
+            "Toss the salad gently to combine all the ingredients.",
+            "Season with salt and black pepper to taste.",
+            "Serve immediately, optionally topped with grilled chicken or shrimp."
+        ]
     }
 ]
