@@ -11,7 +11,7 @@
             "50g grated parmesan",
             "Salt and pepper to taste"
         ],
-        "steps": [
+        "instructions": [
             "Boil the spaghetti until al dente.",
             "Cook the bacon in a skillet until crispy.",
             "Whisk eggs and parmesan in a bowl.",
@@ -31,7 +31,7 @@
             "1 cup tomato puree",
             "1/2 cup cream"
         ],
-        "steps": [
+        "instructions": [
             "Marinate the chicken with yogurt and tikka masala spice blend.",
             "Grill the chicken until fully cooked.",
             "Prepare the tomato-based gravy in a pan.",
@@ -52,7 +52,7 @@
             "Salt and black pepper to taste",
             "Optional: Grilled chicken or shrimp (for a protein boost)"
         ],
-        "steps": [
+        "instructions": [
             "Wash and dry the romaine lettuce, then chop it into bite-sized pieces.",
             "In a large salad bowl, toss the lettuce with Caesar dressing until evenly coated.",
             "Add grated parmesan cheese and croutons to the bowl.",
