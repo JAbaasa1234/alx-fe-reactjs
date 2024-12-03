@@ -18,30 +18,32 @@ const RecipeDetail = () => {
     }
 
     return (
-        <div className='p-8'>
-            <h1 className='text-4xl font-bold mb-4'>{recipe.title}</h1>
-            <img src={recipe.image} alt={recipe.title} className='w-full h-auto rounded-lg mb-6'/>
-            <p className='text-lg mb-4'>{recipe.summary}</p>
-            <div className='mb-8'>
-                <h2 className='text-2xl font-semibold mb-2'>Ingredients</h2>
-                <ul className='list-disc pl-6'>
-                   {recipe.ingredients.map((ingredient, index) => (
-                    <li key={index} className='mb-1'>
-                        {ingredient}
-                    </li>
-                   ))} 
-                </ul>
-            </div>
-
-            <div>
-                <h2 className='text-2xl font-semibold mb-2'>Instructions</h2>
-                <ol className='list-decimal pl-6'>
-                    {recipe.instructions.map((instruction, index) => (
-                        <li key={index} className='mb-2'>
-                            {instruction}
+        <div className='p-8 max-w-4xl mx-auto'>
+            <div className='bg-white rounded-lg shadow-lg p-6'>
+                <h1 className='text-4xl font-bold mb-4'>{recipe.title}</h1>
+                <img src={recipe.image} alt={recipe.title} className='w-full h-auto rounded-lg mb-6'/>
+                <p className='text-lg mb-4'>{recipe.summary}</p>
+                <div className='mb-8'>
+                    <h2 className='text-2xl font-semibold mb-2'>Ingredients</h2>
+                    <ul className='list-disc pl-6'>
+                    {recipe.ingredients.map((ingredient, index) => (
+                        <li key={index} className='mb-1'>
+                            {ingredient}
                         </li>
-                    ))}
-                </ol>
+                    ))} 
+                    </ul>
+                </div>
+
+                <div>
+                    <h2 className='text-2xl font-semibold mb-2'>Instructions</h2>
+                    <ol className='list-decimal pl-6'>
+                        {recipe.instructions.map((instruction, index) => (
+                            <li key={index} className='mb-2'>
+                                {instruction}
+                            </li>
+                        ))}
+                    </ol>
+                </div>
             </div>
         </div>
     );
