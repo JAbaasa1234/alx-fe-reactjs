@@ -12,17 +12,19 @@ const HomePage = () => {
     return (
        <div className="container mx-auto px-4 py-6">
         <h1 className="text-3xl font-bold text-center mb-6">Our Recipes</h1>
-        <Link
-            to="/add-recipe"
-            className="bg-green-500 text-white py-2 px-4 rounded shadow hover:bg-green-600 transition duration-200"
-        >
-            Add Recipe
-        </Link>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="flex justify-center mb-6">
+            <Link
+                to="/add-recipe"
+                className="bg-green-500 text-white py-2 px-4 rounded shadow hover:bg-green-600 transition duration-200"
+            >
+                Add Recipe
+            </Link>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {recipes.map((recipe) => (
                 <Link to={`/recipe/${recipe.id}`} key={recipe.id}>
                     <div
-                        className="bg-white rounded-lg shadow-lg overflow-hidden hover:scale-105 transition-transform duration-400 mt-8"
+                        className="bg-white rounded-lg shadow-lg overflow-hidden hover:scale-105 transition-transform duration-400"
                     >
                         <img
                             src={recipe.image}
