@@ -3,13 +3,13 @@ import React, { useState } from "react";
 const AddRecipeForm = () => {
     const [title, setTitle] = useState("");
     const [ingredients, setIngredients] = useState("");
-    const [instructions, setInstructions] = useState("");
+    const [steps, setSteps] = useState("");
     const [error, setError] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (!title || !ingredients || !instructions) {
+        if (!title || !ingredients || !steps) {
             setError("All fields are required.");
             return;
         }
@@ -25,14 +25,14 @@ const AddRecipeForm = () => {
         const newRecipe = {
             title,
             ingredients: ingredientList,
-            instructions: instructions.split("\n").map((item) => item.trim()),
+            steps: steps.split("\n").map((item) => item.trim()),
         };
 
         console.log("New Recipe Submitted:", newRecipe);
 
         setTitle("");
         setIngredients("");
-        setInstructions("");
+        setSteps("");
     };
 
     return (
@@ -67,10 +67,10 @@ const AddRecipeForm = () => {
                 </div>
 
                 <div className="mb-6">
-                    <label className="block text-gray-700 font-semibold mb-2">Preparation Instructions (one per line)</label>
+                    <label className="block text-gray-700 font-semibold mb-2">Preparation Steps (one per line)</label>
                     <textarea
-                        value={instructions}
-                        onChange={(e) => setInstructions(e.target.value)}
+                        value={steps}
+                        onChange={(e) => setSteps(e.target.value)}
                         className="w-full p-3 border rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                         rows="7"
                         placeholder="Enter each step on a new line"
