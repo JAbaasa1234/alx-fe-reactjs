@@ -4,27 +4,41 @@ const AddRecipeForm = () => {
     const [title, setTitle] = useState("");
     const [ingredients, setIngredients] = useState("");
     const [steps, setSteps] = useState("");
-    const [error, setError] = useState("");
+    const [errors, setErrors] = useState("");
+
+    const validate = () => {
+        const validationErrors = {};
+
+        if (!title.trim()) {
+            validationErrors.title = "Recipe title is required.";
+        }
+        if (!ingredients.trim()) {
+            validationErrors.ingredients = "Ingredients are required.";
+        } else {
+            const ingredientList = ingredients.split("\n").map((item) => item.trim());
+            if (ingredientList.length < 2) {
+                validationErrors.ingredients = "Please provide at least two ingredients.";
+            }
+        }
+        if (!steps.trim()) {
+            validationErrors.steps = "Preparation steps are required.";
+        }
+
+        return validationErrors;
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (!title || !ingredients || !steps) {
-            setError("All fields are required.");
+        const validationErrors = validate();
+        if (Object.keys(validationErrors).length > 0) {
+            setErrors(validationErrors);
             return;
         }
-
-        const ingredientList = ingredients.split("\n").map((item) => item.trim());
-        if (ingredientList.length < 2) {
-            setError("Please provide at least two ingredients.");
-            return;
-        }
-
-        setError("");
 
         const newRecipe = {
             title,
-            ingredients: ingredientList,
+            ingredients: ingredients.split("\n").map((item) => item.trim()),
             steps: steps.split("\n").map((item) => item.trim()),
         };
 
@@ -33,14 +47,19 @@ const AddRecipeForm = () => {
         setTitle("");
         setIngredients("");
         setSteps("");
+        setErrors({});
     };
 
     return (
         <div className="p-8 max-w-2xl mx-auto bg-white rounded shadow-md">
             <h1 className="text-3xl font-bold mb-6 text-center">Add a New Recipe</h1>
-            {error && (
+            {Object.keys(errors).length > 0 && (
                 <div className="text-red-600 bg-red-100 border border-red-300 p-4 rounded mb-4">
-                    {error}
+                    <ul>
+                        {Object.values(errors).map((error, index) => (
+                            <li key={index}>{error}</li>
+                        ))}
+                    </ul>
                 </div>
             )}
             <form onSubmit={handleSubmit}>
@@ -53,6 +72,7 @@ const AddRecipeForm = () => {
                         className="w-full p-3 border rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                         placeholder="Enter recipe title"
                     />
+                    {errors.title && <p className="text-red-500 text-sm">{errors.title}</p>}
                 </div>
 
                 <div className="mb-4">
@@ -64,6 +84,7 @@ const AddRecipeForm = () => {
                         rows="5"
                         placeholder="Enter each ingredient on a new line"
                     ></textarea>
+                    {errors.ingredients && <p className="text-red-500 text-sm">{errors.ingredients}</p>}
                 </div>
 
                 <div className="mb-6">
@@ -75,6 +96,7 @@ const AddRecipeForm = () => {
                         rows="7"
                         placeholder="Enter each step on a new line"
                     ></textarea>
+                    {errors.steps && <p className="text-red-500 text-sm">{errors.steps}</p>}
                 </div>
 
                 <button
