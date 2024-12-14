@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { fetchAdvancedUserData } from "../services/githubService";
+import fetchUserData from "../services/githubService";
 
 
 const Search = () => {
@@ -20,7 +20,7 @@ const Search = () => {
 
         try {
             const query = { username, location, minRepos };
-            const data = await fetchAdvancedUserData(query);
+            const data = await fetchUserData(query);
             setUserData(data.items || []);
         } catch (err) {
             setError("Looks like we cant find the user");
