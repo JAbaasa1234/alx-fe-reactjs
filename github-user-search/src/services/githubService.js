@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://api.github.com/search/users';
+const BASE_URL = 'https://api.github.com/search/users?q=';
 
 export const fetchAdvancedUserData = async ({username, location, minRepos}) => {
     let query = [];
@@ -12,7 +12,7 @@ export const fetchAdvancedUserData = async ({username, location, minRepos}) => {
     const queryString = query.join("+")
 
     try {
-        const response = await axios.get(`${BASE_URL}?q=${queryString}`);
+        const response = await axios.get(`${BASE_URL}${queryString}`);
         return response.data;
     } catch (error) {
         console.error("Error fetching user data:", error);
